@@ -13,6 +13,15 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
+  modules: [
+    '@nuxtjs/axios'
+  ],
+
+  axios: {
+    baseURL: 'http://local.cart/api'
+  },
+
   css: [
     '~assets/styles/app.scss'
   ],
