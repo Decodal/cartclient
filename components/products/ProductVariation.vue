@@ -15,11 +15,11 @@
           >
             {{ variation.name }}
 
-            <!-- <template v-if="variation.price_varies">
+            <template v-if="variation.price_varies">
               ({{ variation.price }})
             </template>
 
-            <template v-if="!variation.in_stock">
+          <!--   <template v-if="!variation.in_stock">
               (out of stock)
             </template> -->
           </option>
