@@ -11,7 +11,7 @@
             v-for="variation in variations"
             :key="variation.id"
             :value="variation.id"
-            
+            :disabled="!variation.in_stock"
           >
             {{ variation.name }}
 
@@ -19,9 +19,9 @@
               ({{ variation.price }})
             </template>
 
-          <!--   <template v-if="!variation.in_stock">
+            <template v-if="!variation.in_stock">
               (out of stock)
-            </template> -->
+            </template>
           </option>
         </select>
       </div>
