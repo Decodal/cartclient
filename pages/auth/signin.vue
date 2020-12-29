@@ -51,34 +51,24 @@
     methods: {
       async signin () {
 
-          await this.$auth.loginWith('local', { 
-              data: { 
-                "email": this.form.email, 
-                "password": this.form.password 
-                } 
-              })
-              .then((response) => {
-                dispatch('getUserInfo')
-              })
-          console.log(this.form.password);
-
-
-          console.log(this.$auth.user);
-
+        await this.$auth.loginWith('local', {
+              data: this.form
+            })
+            // .then((response) => {
+            //   dispatch('getUserInfo')
+            // })
 
         this.$router.replace({
           name: 'index'
         })
-        console.log(this.$auth.loggedIn);
+
       },
       getUserInfo({ commit }) {
         return this.$axios
-        .$get(`${process.env.baseUrl}/auth/me`)
-        .then((response) => {
-          this.$auth.setUser(response.data)
-          // ...
-          // .catch((err) => {... })
-        })
+          .$get(`${process.env.baseUrl}/auth/me`)
+          .then((response) => {
+            this.$auth.setUser(response.data)
+          })
       }
 
     }
