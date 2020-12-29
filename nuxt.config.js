@@ -15,8 +15,63 @@ module.exports = {
   },
 
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
+  auth: { 
+    strategies: { 
+      local: { 
+        token: {
+          property: 'meta.token',
+        },
+        user: {
+          property: 'data',
+          autoFetch: false,
+        },
+        endpoints: { 
+          login: { 
+            url: '/auth/login', 
+            method: 'POST', 
+          }, 
+          // logout: { 
+          //   url: '/api/v1/web/logout', 
+          //   method: 'POST' 
+          // }, 
+          user: {
+            url: '/auth/me', 
+            method: 'get', 
+            propertyName: false
+          }
+
+        } 
+      } 
+    } 
+  },
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: {
+  //           url: '/auth/login',
+  //           method: 'post',
+  //           propertyName: 'meta.token'
+  //         },
+  //         user: {
+  //           url: '/auth/me',
+  //           method: 'get',
+  //           propertyName: 'data'
+  //         },
+  //         logout: false
+  //       }
+  //     }
+  //   }
+  // },
+
+  // router: {
+  //   middleware: [
+  //     'auth',
+  //   ]
+  // },
 
   axios: {
     baseURL: 'http://local.cart/api'
@@ -33,6 +88,11 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': false
+      }
+    },
     /*
     ** Run ESLint on save
     */
