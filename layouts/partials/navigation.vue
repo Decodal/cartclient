@@ -62,7 +62,7 @@
               Orders
             </nuxt-link>
             <nuxt-link :to="{ name: 'cart' }" class="navbar-item">
-              Cart (0)
+              Cart ({{ cartCount }})
             </nuxt-link>
           </template>
     </div>
@@ -73,11 +73,13 @@
 
 <script>
 import {mapGetters } from 'vuex'
+
 export default {
   computed: {
     ...mapGetters({
-      categories: 'categories'
-    })
+        categories: 'categories',
+        cartCount: 'cart/count'
+      })
   }
 }
 </script>
