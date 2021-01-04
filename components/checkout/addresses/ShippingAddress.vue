@@ -3,20 +3,20 @@
     <div class="message-body">
       <h1 class="title is-5">Ship to</h1>
 
-      <!-- <template v-if="selecting">
+      <template v-if="selecting">
         <ShippingAddressSelector
           :addresses="addresses"
           :selectedAddress="selectedAddress"
           @click="addressSelected"
         />
-      </template> -->
+      </template>
       <!-- <template v-else-if="creating">
         <ShippingAddressCreator
           @cancel="creating = false"
           @created="created"
         />
       </template> -->
-   
+      <template v-else>
         <template v-if="selectedAddress">
           <p>
             {{ selectedAddress.name }}<br>
@@ -28,8 +28,8 @@
 
           <br>
         </template>
-
-        <!-- <div class="field is-grouped">
+      </template>   
+        <div class="field is-grouped">
           <p class="control">
             <a href="" class="button is-info" @click.prevent="selecting = true">Change shipping address</a>
           </p>
@@ -37,35 +37,35 @@
             <a href="" class="button is-info" @click.prevent="creating = true">Add an address</a>
           </p>
         </div>
-      -->
+     
     </div>
   </article>
 </template>
 
 <script>
-  // import ShippingAddressSelector from './ShippingAddressSelector'
+  import ShippingAddressSelector from './ShippingAddressSelector'
   // import ShippingAddressCreator from './ShippingAddressCreator'
 
   export default {
     data () {
       return {
-        // selecting: false,
+        selecting: false,
         // creating: false,
         localAddresses: this.addresses,
         selectedAddress: null
       }
     },
 
-    // watch: {
-    //   selectedAddress (address) {
-    //     this.$emit('input', address.id)
-    //   }
-    // },
+    watch: {
+      selectedAddress (address) {
+        this.$emit('input', address.id)
+      }
+    },
 
-    // components: {
-    //   ShippingAddressSelector,
-    //   ShippingAddressCreator
-    // },
+    components: {
+      ShippingAddressSelector,
+      // ShippingAddressCreator
+    },
 
     props: {
       addresses: {
@@ -81,10 +81,10 @@
     },
 
     methods: {
-      // addressSelected (address) {
-      //   this.switchAddress(address)
-      //   this.selecting = false
-      // },
+      addressSelected (address) {
+        this.switchAddress(address)
+        this.selecting = false
+      },
 
       switchAddress (address) {
         this.selectedAddress = address
