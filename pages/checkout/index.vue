@@ -4,7 +4,10 @@
       <div class="columns">
         <div class="column is-three-quarters">
 
-
+          <ShippingAddress
+            :addresses="addresses"
+        
+          />
           <article class="message" >
             <div class="message-body">
               <h1 class="title is-5">
@@ -88,22 +91,22 @@
   import { mapGetters, mapActions } from 'vuex'
 
   import CartOverview from '@/components/cart/CartOverview'
-  // import ShippingAddress from '@/components/checkout/addresses/ShippingAddress'
+  import ShippingAddress from '@/components/checkout/addresses/ShippingAddress'
   // import PaymentMethods from '@/components/checkout/paymentMethods/PaymentMethods'
 
   export default {
-    // data () {
-    //   return {
-    //     submitting: false,
-    //     addresses: [],
-    //     shippingMethods: [],
-    //     paymentMethods: [],
-    //     form: {
-    //       address_id: null,
-    //       payment_method_id: null,
-    //     }
-    //   }
-    // },
+    data () {
+      return {
+    //    submitting: false,
+        addresses: [],
+       // shippingMethods: [],
+        // paymentMethods: [],
+        // form: {
+        //   address_id: null,
+        //   payment_method_id: null,
+        // }
+      }
+    },
 
     // middleware: [
     //   'redirectIfGuest'
@@ -123,7 +126,7 @@
 
     components: {
       CartOverview,
-      // ShippingAddress,
+      ShippingAddress,
       // PaymentMethods
     },
 
@@ -186,14 +189,14 @@
     //   }
     // },
 
-    // async asyncData ({ app }) {
-    //   let addresses = await app.$axios.$get('addresses')
-    //   let paymentMethods = await app.$axios.$get('payment-methods')
+    async asyncData ({ app }) {
+      let addresses = await app.$axios.$get('addresses')
+      //let paymentMethods = await app.$axios.$get('payment-methods')
 
-    //   return {
-    //     addresses: addresses.data,
-    //     paymentMethods: paymentMethods.data
-    //   }
-    // }
+      return {
+        addresses: addresses.data,
+       // paymentMethods: paymentMethods.data
+      }
+    }
   }
 </script>
