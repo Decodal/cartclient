@@ -3,10 +3,9 @@
     <div class="container is-fluid">
       <div class="columns">
         <div class="column is-three-quarters">
-
           <ShippingAddress
             :addresses="addresses"
-        
+
           />
           <article class="message" >
             <div class="message-body">
@@ -29,7 +28,7 @@
                 Cart summary
               </h1>
               <CartOverview>
-                <template slot="rows" v-if="shippingMethodId">
+                <template slot="rows">
                   <tr>
                     <td></td>
                     <td></td>
@@ -37,7 +36,8 @@
                       Shipping
                     </td>
                     <td>
-                      {{ shipping.price }}
+
+                      £0.00
                     </td>
                     <td></td>
                   </tr>
@@ -97,9 +97,9 @@
   export default {
     data () {
       return {
-    //    submitting: false,
+        submitting: false,
         addresses: [],
-       // shippingMethods: [],
+        // shippingMethods: [],
         // paymentMethods: [],
         // form: {
         //   address_id: null,
