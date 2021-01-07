@@ -13,10 +13,10 @@
               <h1 class="title is-5">
                 Shipping
               </h1>
-              <div class="select is-fullwidth">
-                <select>
-                  <option >
-                   
+            <div class="select is-fullwidth">
+                <select v-model="shippingMethodId">
+                  <option v-for="shipping in shippingMethods" :key="shipping.id" :value="shipping.id">
+                    {{ shipping.name }} ({{ shipping.price }})
                   </option>
                 </select>
               </div>
@@ -100,11 +100,11 @@
       return {
         submitting: false,
         addresses: [],
-        // shippingMethods: [],
+        shippingMethods: [],
         // paymentMethods: [],
         form: {
           address_id: null,
-        //  payment_method_id: null,
+         payment_method_id: null,
         }
       }
     },
@@ -113,12 +113,13 @@
     //   'redirectIfGuest'
     // ],
 
-    // watch: {
-    //   'form.address_id' (addressId) {
-    //     this.getShippingMethodsForAddress(addressId).then(() => {
-    //       this.setShipping(this.shippingMethods[0])
-    //     })
-    //   },
+    watch: {
+      'form.address_id' (addressId) {
+        this.getShippingMethodsForAddress(addressId).then(() => {
+          this.setShipping(this.shippingMethods[0])
+        })
+      }
+    },
 
     //   shippingMethodId () {
     //     this.getCart()
@@ -151,7 +152,7 @@
     //   }
     // },
 
-    // methods: {
+
     //   ...mapActions({
     //     setShipping: 'cart/setShipping',
     //     getCart: 'cart/getCart',
@@ -180,15 +181,15 @@
 
     //     this.submitting = false
     //   },
+    methods: {
+      async getShippingMethodsForAddress (addressId) {
+        let response = await this.$axios.$get(`addresses/${addressId}/shipping`)
 
-    //   async getShippingMethodsForAddress (addressId) {
-    //     let response = await this.$axios.$get(`addresses/${addressId}/shipping`)
+        this.shippingMethods = response.data
 
-    //     this.shippingMethods = response.data
-
-    //     return response
-    //   }
-    // },
+        return response
+      }
+    },
 
     async asyncData ({ app }) {
       let addresses = await app.$axios.$get('addresses')
