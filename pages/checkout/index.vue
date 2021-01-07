@@ -3,9 +3,10 @@
     <div class="container is-fluid">
       <div class="columns">
         <div class="column is-three-quarters">
+          {{ form }}
           <ShippingAddress
             :addresses="addresses"
-
+             v-model="form.address_id"
           />
           <article class="message" >
             <div class="message-body">
@@ -101,10 +102,10 @@
         addresses: [],
         // shippingMethods: [],
         // paymentMethods: [],
-        // form: {
-        //   address_id: null,
-        //   payment_method_id: null,
-        // }
+        form: {
+          address_id: null,
+        //  payment_method_id: null,
+        }
       }
     },
 
