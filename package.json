@@ -17,7 +17,8 @@
     "@nuxtjs/axios": "^5.12.3",
     "bulma": "^0.9.1",
     "nanoid": "^2.1.11",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "query-string": "^6.13.8"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

@@ -13,6 +13,7 @@
               <h1 class="title is-5">
                 Shipping
               </h1>
+              {{ shippingMethodId }}
             <div class="select is-fullwidth">
                 <select v-model="shippingMethodId">
                   <option v-for="shipping in shippingMethods" :key="shipping.id" :value="shipping.id">
@@ -37,8 +38,7 @@
                       Shipping
                     </td>
                     <td>
-
-                      £0.00
+                      {{ shipping.price }}
                     </td>
                     <td></td>
                   </tr>
@@ -104,7 +104,7 @@
         // paymentMethods: [],
         form: {
           address_id: null,
-         payment_method_id: null,
+          payment_method_id: null,
         }
       }
     },
@@ -118,13 +118,12 @@
         this.getShippingMethodsForAddress(addressId).then(() => {
           this.setShipping(this.shippingMethods[0])
         })
+      },
+
+      shippingMethodId () {
+        this.getCart()
       }
     },
-
-    //   shippingMethodId () {
-    //     this.getCart()
-    //   }
-    // },
 
     components: {
       CartOverview,
@@ -137,27 +136,24 @@
         total: 'cart/total',
         products: 'cart/products',
         empty: 'cart/empty',
-        // shipping: 'cart/shipping'
+        shipping: 'cart/shipping'
       }),
+
+      shippingMethodId: {
+        get () {
+          return this.shipping ? this.shipping.id : ''
+        },
+
+        set (shippingMethodId) {
+          this.setShipping(
+            this.shippingMethods.find(s => s.id === shippingMethodId)
+          )
+        }
+      }
     },
-    //   shippingMethodId: {
-    //     get () {
-    //       return this.shipping ? this.shipping.id : ''
-    //     },
-    //     set (shippingMethodId) {
-    //       this.setShipping(
-    //         this.shippingMethods.find(s => s.id === shippingMethodId)
-    //       )
-    //     }
-    //   }
-    // },
 
 
-    //   ...mapActions({
-    //     setShipping: 'cart/setShipping',
-    //     getCart: 'cart/getCart',
-    //     flash: 'alert/flash'
-    //   }),
+
 
     //   async order () {
     //     this.submitting = true
@@ -182,6 +178,12 @@
     //     this.submitting = false
     //   },
     methods: {
+      ...mapActions({
+        setShipping: 'cart/setShipping',
+        getCart: 'cart/getCart',
+        flash: 'alert/flash'
+      }),
+
       async getShippingMethodsForAddress (addressId) {
         let response = await this.$axios.$get(`addresses/${addressId}/shipping`)
 
