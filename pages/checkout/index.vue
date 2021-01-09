@@ -8,7 +8,7 @@
             :addresses="addresses"
              v-model="form.address_id"
           />
-          <article class="message" >
+          <article class="message" v-if="shippingMethodId">
             <div class="message-body">
               <h1 class="title is-5">
                 Shipping
@@ -30,7 +30,7 @@
                 Cart summary
               </h1>
               <CartOverview>
-                <template slot="rows">
+                <template slot="rows" v-if="shippingMethodId">
                   <tr>
                     <td></td>
                     <td></td>
