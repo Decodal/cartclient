@@ -152,37 +152,38 @@
       }
     },
 
-
-
-
-    //   async order () {
-    //     this.submitting = true
-
-    //     try {
-    //       await this.$axios.$post('orders', {
-    //         ...this.form,
-    //         shipping_method_id: this.shippingMethodId
-    //       })
-
-    //       await this.getCart()
-
-    //       this.$router.replace({
-    //         name: 'orders'
-    //       })
-    //     } catch (e) {
-    //       this.flash(e.response.data.message)
-
-    //       this.getCart()
-    //     }
-
-    //     this.submitting = false
-    //   },
     methods: {
       ...mapActions({
         setShipping: 'cart/setShipping',
         getCart: 'cart/getCart',
         flash: 'alert/flash'
       }),
+
+      async order () {
+      //  this.flash(`Ooops, didn't work`)
+        this.submitting = true
+
+        try {
+          await this.$axios.$post('orders', {
+            ...this.form,
+            shipping_method_id: this.shippingMethodId
+          })
+
+          await this.getCart()
+
+          this.$router.replace({
+            name: 'orders'
+          })
+        } catch (e) {
+          this.flash(e.response.data.message)
+
+          this.getCart()
+          this.submitting = false
+         //console.log(e.response);
+        }
+
+       // this.submitting = false
+      },
 
       async getShippingMethodsForAddress (addressId) {
         let response = await this.$axios.$get(`addresses/${addressId}/shipping`)
