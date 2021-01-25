@@ -8,6 +8,12 @@
             :addresses="addresses"
              v-model="form.address_id"
           />
+
+          <PaymentMethods
+            :payment-methods="paymentMethods"
+            v-model="form.payment_method_id"
+          />
+          
           <article class="message" v-if="shippingMethodId">
             <div class="message-body">
               <h1 class="title is-5">
@@ -93,7 +99,7 @@
 
   import CartOverview from '@/components/cart/CartOverview'
   import ShippingAddress from '@/components/checkout/addresses/ShippingAddress'
-  // import PaymentMethods from '@/components/checkout/paymentMethods/PaymentMethods'
+  import PaymentMethods from '@/components/checkout/paymentMethods/PaymentMethods'
 
   export default {
     data () {
@@ -101,7 +107,7 @@
         submitting: false,
         addresses: [],
         shippingMethods: [],
-        // paymentMethods: [],
+        paymentMethods: [],
         form: {
           address_id: null,
           payment_method_id: null,
@@ -128,7 +134,7 @@
     components: {
       CartOverview,
       ShippingAddress,
-      // PaymentMethods
+      PaymentMethods
     },
 
     computed: {
