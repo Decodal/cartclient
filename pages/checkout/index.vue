@@ -3,7 +3,6 @@
     <div class="container is-fluid">
       <div class="columns">
         <div class="column is-three-quarters">
-          {{ form }}
           <ShippingAddress
             :addresses="addresses"
              v-model="form.address_id"
@@ -19,7 +18,6 @@
               <h1 class="title is-5">
                 Shipping
               </h1>
-              {{ shippingMethodId }}
             <div class="select is-fullwidth">
                 <select v-model="shippingMethodId">
                   <option v-for="shipping in shippingMethods" :key="shipping.id" :value="shipping.id">
@@ -202,11 +200,11 @@
 
     async asyncData ({ app }) {
       let addresses = await app.$axios.$get('addresses')
-      //let paymentMethods = await app.$axios.$get('payment-methods')
+     // let paymentMethods = await app.$axios.$get('payment-methods')
 
       return {
-        addresses: addresses.data,
-       // paymentMethods: paymentMethods.data
+       addresses: addresses.data,
+      // paymentMethods: paymentMethods.data
       }
     }
   }

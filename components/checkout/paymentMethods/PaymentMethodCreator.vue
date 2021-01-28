@@ -48,7 +48,7 @@
     },
 
     mounted () {
-      const stripe = Stripe('pk_test_kjzrYyFONSIQLpg57n1R7QxZ')
+      const stripe = Stripe('pk_test_51Gxs8HC31s8qC0axVSdHIgG0tH9VOpXFhdWO3EKMkYQ0igk7huWsKZfzSL6SYOeZhnL0cws0iJ0mH9lRjTKU6Ira00omPEk9QM')
 
       this.stripe = stripe
 
