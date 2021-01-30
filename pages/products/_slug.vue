@@ -8,21 +8,23 @@
             <div class="column is-half">
                 <section class="section">
                 <h1 class="title is-4">
-                    {{ product.name}}
+                    {{ product.name }}
                 </h1>
                 <p v-if="product.description">
-                    {{ product.description}}
+                    {{ product.description }}
                 </p> 
 
                 <hr>
+
                 <span class="tag is-rounded is-medium is-dark" v-if="!product.in_stock">
                     Out of stock
                 </span>
 
                 <span class="tag is-rounded is-medium">
-                    {{ product.price}}
+                    {{ product.price }}
                 </span>
                 </section>
+
                  <section class="section">
                 <form action="" @submit.prevent="add">
                     <ProductVariation
@@ -32,9 +34,6 @@
                         :key="type"
                         v-model="form.variation"
                     />
-
-                    {{ form }}
-
 
                     <div class="field has-addons" v-if="form.variation">
                         <div class="control">
@@ -51,13 +50,13 @@
                         </div>
                     </div>
                 </form>
-
                 </section>
             </div>
             </div>
         </div>
     </div>
 </template>
+
 <script>
   import { mapActions } from 'vuex'
 
@@ -108,6 +107,5 @@ export default {
             product: response.data
         }
     }
-
 }
 </script>

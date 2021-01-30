@@ -18,7 +18,7 @@
               </table>
             </div>
           </article>
-          <p>
+          <p v-else>
             You have no orders
           </p>
         </div>

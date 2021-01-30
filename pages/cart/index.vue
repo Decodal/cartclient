@@ -6,7 +6,7 @@
           <h1 class="title is-4">Your cart</h1>
 
           <article class="message" v-if="products.length">
-            <cartOverview />
+            <CartOverview />
           </article>
           <p v-else>
             Your cart is empty
@@ -28,7 +28,6 @@
 <script>
   import { mapGetters } from 'vuex'
   import CartOverview from '@/components/cart/CartOverview'
-
 
   export default {
     components: {

@@ -147,7 +147,6 @@
         get () {
           return this.shipping ? this.shipping.id : ''
         },
-
         set (shippingMethodId) {
           this.setShipping(
             this.shippingMethods.find(s => s.id === shippingMethodId)
@@ -182,11 +181,11 @@
           this.flash(e.response.data.message)
 
           this.getCart()
-          this.submitting = false
+          //this.submitting = false
          //console.log(e.response);
         }
 
-       // this.submitting = false
+        this.submitting = false
       },
 
       async getShippingMethodsForAddress (addressId) {
@@ -200,11 +199,11 @@
 
     async asyncData ({ app }) {
       let addresses = await app.$axios.$get('addresses')
-     // let paymentMethods = await app.$axios.$get('payment-methods')
+      let paymentMethods = await app.$axios.$get('payment-methods')
 
       return {
        addresses: addresses.data,
-      // paymentMethods: paymentMethods.data
+       paymentMethods: paymentMethods.data
       }
     }
   }

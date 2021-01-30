@@ -10,7 +10,6 @@
   </div>
 </template>
 
-
 <script>
   import Product from '@/components/products/Product'
 

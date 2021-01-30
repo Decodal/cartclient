@@ -11,15 +11,14 @@
       <span></span>
     </div>
   </div>
-  <div class="navbar-menu">
 
+  <div class="navbar-menu">
     <template v-for="category in categories">
       <template v-if="category.children.length">
         <div class="navbar-item is-hoverable has-dropdown" :key="category.slug">
           <nuxt-link 
             :to="{ name: 'categories-slug', params: { slug: category.slug } }"
             class="navbar-link"
-
           >
             {{ category.name }}
           </nuxt-link>
@@ -33,17 +32,13 @@
               {{ child.name }}
             </nuxt-link>
           </div>
-
         </div>
-        
       </template>
       <template v-else>
         <nuxt-link :to="{ name: 'categories-slug', params: { slug: category.slug } }" :key="category.slug" class="navbar-item">
-          
           {{ category.name }}
         </nuxt-link>
       </template>
-      
     </template>
   </div>
 
@@ -72,7 +67,7 @@
 </template>
 
 <script>
-import {mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   computed: {

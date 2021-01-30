@@ -28,7 +28,7 @@
 
           <br>
         </template>
-      </template>   
+
         <div class="field is-grouped">
           <p class="control">
             <a href="" class="button is-info" @click.prevent="selecting = true">Change shipping address</a>
@@ -37,7 +37,7 @@
             <a href="" class="button is-info" @click.prevent="creating = true">Add an address</a>
           </p>
         </div>
-     
+      </template>   
     </div>
   </article>
 </template>

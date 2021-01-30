@@ -37,7 +37,6 @@ export const getters = {
   shipping (state) {
     return state.shipping
   }
-
 }
 
 export const mutations = {
@@ -64,7 +63,6 @@ export const mutations = {
   SET_SHIPPING (state, shipping) {
     state.shipping = shipping
   }
-
 }
 
 export const actions = {
