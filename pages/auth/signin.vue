@@ -44,33 +44,25 @@
       }
     },
 
-    // middleware: [
-    //   'redirectIfAuthenticated'
-    // ],
+    middleware: [
+      'redirectIfAuthenticated'
+    ],
 
     methods: {
       async signin () {
-
         await this.$auth.loginWith('local', {
-              data: this.form
-            })
-            // .then((response) => {
-            //   dispatch('getUserInfo')
-            // })
+          data: this.form
+        })
+
+        if (this.$route.query.redirect) {
+          this.$router.replace(this.$route.query.redirect)
+          return
+        }
 
         this.$router.replace({
           name: 'index'
         })
-
-      },
-      getUserInfo({ commit }) {
-        return this.$axios
-          .$get(`${process.env.baseUrl}/auth/me`)
-          .then((response) => {
-            this.$auth.setUser(response.data)
-          })
       }
-
     }
   }
 </script>

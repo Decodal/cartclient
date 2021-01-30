@@ -37,9 +37,9 @@
       }
     },
 
-    // middleware: [
-    //   'redirectIfGuest'
-    // ],
+    middleware: [
+      'redirectIfGuest'
+    ],
 
     components: {
       Order

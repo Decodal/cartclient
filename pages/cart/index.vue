@@ -35,9 +35,9 @@
       CartOverview
     },
 
-    // middleware: [
-    //   'redirectIfGuest'
-    // ],
+    middleware: [
+      'redirectIfGuest'
+    ],
 
     computed: {
       ...mapGetters({

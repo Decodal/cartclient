@@ -113,9 +113,9 @@
       }
     },
 
-    // middleware: [
-    //   'redirectIfGuest'
-    // ],
+    middleware: [
+      'redirectIfGuest'
+    ],
 
     watch: {
       'form.address_id' (addressId) {
