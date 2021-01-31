@@ -52,11 +52,11 @@
       }
     },
 
-    watch: {
-      selectedPaymentMethod (paymentMethod) {
-        this.$emit('input', paymentMethod.id)
-      }
-    },
+    // watch: {
+    //   selectedPaymentMethod (paymentMethod) {
+    //     this.$emit('input', paymentMethod.id)
+    //   }
+    // },
 
     components: {
       PaymentMethodSelector,
