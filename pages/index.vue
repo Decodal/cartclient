@@ -1,5 +1,6 @@
 <template>
- <div class="section">
+ <div class="shop-wrapper">
+   <SearchOverlay />
    <div class="container is-fluid">
      <p>Home</p>
    </div>
@@ -7,7 +8,11 @@
 </template>
 
 <script>
-export default {
- //
-}
+  import SearchOverlay from '@/components/globals/SearchOverlay'
+
+  export default {
+    components: {
+      SearchOverlay,
+    }
+  }
 </script>
