@@ -1,19 +1,26 @@
 <template>
   <div class="main-sidebar">
     <div class="sidebar-brand">
-        <a href="home.html"><img src="assets/img/logo/nephos.svg" alt=""></a>
+        <!-- <a href="home.html"><img src="assets/img/logo/nephos.svg" alt=""></a> -->
+        <nuxt-link :to="{ name: 'index' }" class="navbar-item">
+        <img src="assets/img/logo/nephos.svg" alt="">
+        </nuxt-link>
+
     </div>
     <div class="sidebar-inner">
         <ul class="icon-menu">
             <!-- Shop sidebar trigger -->
             <li>
-                <nuxt-link :to="{ name: 'index' }" class="navbar-item"  id="open-shop">
+                <nuxt-link :to="{ name: 'index' }"  id="open-shop">
                     <i data-feather="home"></i>
                 </nuxt-link>
             </li>
             <!-- Cart sidebar trigger -->
             <li>
-                <a href="javascript:void(0);" id="open-cart"><i data-feather="shopping-cart"></i><span id="cart-dot" class="cart-items gelatine is-hidden"></span></a>
+                <!-- <a href="javascript:void(0);" id="open-cart"><i data-feather="shopping-cart"></i><span id="cart-dot" class="cart-items gelatine is-hidden"></span></a> -->
+                <nuxt-link :to="{ name: 'cart' }"  id="open-cart">
+                   <i data-feather="shopping-cart"></i><span id="cart-dot" class="cart-items gelatine is-hidden"></span>
+                </nuxt-link>
             </li>
             <!-- Search trigger -->
             <li>
