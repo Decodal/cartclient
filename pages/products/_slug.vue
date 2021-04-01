@@ -58,7 +58,7 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 import ProductVariation from '@/components/products/ProductVariation'
 

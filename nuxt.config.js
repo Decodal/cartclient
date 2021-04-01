@@ -16,10 +16,20 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  /*
+  ** Plugins to load before mounting the App
+  */
+  plugins: [
+    { src: '~/plugins/vue-carousel', ssr: false },
+    { src: '~/plugins/vue-backtotop', ssr: false },
+    { src: '~/plugins/vue-toastification', ssr: false },
+    { src: '~/plugins/vueperslides', ssr: false },
+    { src: '~/plugins/firebase' },
+  ],
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next',
+    'bootstrap-vue/nuxt',
   ],
   auth: { 
     strategies: { 
@@ -75,13 +85,22 @@ module.exports = {
   //     'auth',
   //   ]
   // },
+  
+  router: {
+    linkActiveClass: 'active'
+  },
 
   axios: {
     baseURL: 'http://local.cart/api'
   },
 
   css: [
-    '~assets/styles/app.scss'
+    '~assets/styles/app.scss',
+    '~assets/styles/animate.min.css',
+    '~assets/styles/fontawesome.min.css',
+    '~assets/styles/style.scss',
+    '~assets/styles/admin.scss',
+    '~assets/styles/responsive.scss',
   ],
   /*
   ** Customize the progress bar color
