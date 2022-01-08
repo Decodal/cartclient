@@ -7,6 +7,7 @@
     <Navigation />
     <nuxt/>
     <Footer></Footer>
+    <!-- <SiteLoader  v-if="loading" /> -->
     <BackToTop></BackToTop>
   </div>
 </template>
@@ -19,6 +20,7 @@
   import Menubar from '@/layouts/partials/Menubar';
   import Footer from '@/layouts/partials/Footer'
   import BackToTop from '@/layouts/partials/BackToTop';
+  import SiteLoader from '@/layouts/partials/SiteLoder';
 
   export default {
     components: {
@@ -28,7 +30,8 @@
       TopHeader,
       Menubar,
       Footer,
-      BackToTop
+      BackToTop,
+      SiteLoader
     },
     data() {
       return {

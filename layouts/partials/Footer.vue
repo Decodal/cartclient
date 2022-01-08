@@ -5,7 +5,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
                         <div class="logo">
-                            <nuxt-link to="/"><img src="/assets/img/logo.png" alt="logo"></nuxt-link>
+                            <nuxt-link to="/"><img src="../../assets/img/logo.png" alt="logo"></nuxt-link>
                         </div>
 
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
