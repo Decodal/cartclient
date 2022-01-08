@@ -14,13 +14,15 @@
   import TheAlert from '@/components/globals/TheAlert'
   import TopPanel from '@/layouts/partials/TopPanel'
   import TopHeader from '@/layouts/partials/TopHeader'
+  import Menubar from '@/layouts/partials/Menubar';
 
   export default {
     components: {
       Navigation,
       TheAlert,
       TopPanel,
-      TopHeader
+      TopHeader,
+      Menubar,
     },
     data() {
       return {
