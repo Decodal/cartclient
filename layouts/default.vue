@@ -5,8 +5,8 @@
     <TopHeader></TopHeader>
     <Menubar></Menubar>
     <Navigation />
-    
     <nuxt/>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -16,6 +16,7 @@
   import TopPanel from '@/layouts/partials/TopPanel'
   import TopHeader from '@/layouts/partials/TopHeader'
   import Menubar from '@/layouts/partials/Menubar';
+  import Footer from '@/layouts/partials/Footer'
 
   export default {
     components: {
@@ -24,6 +25,7 @@
       TopPanel,
       TopHeader,
       Menubar,
+      Footer
     },
     data() {
       return {
