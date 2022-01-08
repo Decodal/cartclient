@@ -3,6 +3,7 @@
     <TheAlert />
     <TopPanel v-if="isShowing" @clicked="onTopPanelClose"></TopPanel>
     <TopHeader></TopHeader>
+    <Menubar></Menubar>
     <Navigation />
     
     <nuxt/>
