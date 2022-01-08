@@ -7,7 +7,7 @@
     <Navigation />
     <nuxt/>
     <Footer></Footer>
-    <!-- <SiteLoader  v-if="loading" /> -->
+    <SiteLoader  v-if="loading" />
     <BackToTop></BackToTop>
   </div>
 </template>
@@ -44,5 +44,14 @@
         this.isShowing = value;
       }
     },
+    watch: {
+    '$route' (pathUrl){
+      this.loading = true;
+      setTimeout(() => { this.loading = false; }, 600);
+    }
+    },
+    mounted(){
+      setTimeout(() => { this.loading = false; }, 600);
+    }
   }
 </script>
