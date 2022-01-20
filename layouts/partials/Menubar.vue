@@ -85,16 +85,36 @@
                                     <nuxt-link to="/contact" class="nav-link">Contact</nuxt-link>
                                 </li>
                             </ul>
-
+<!-- 
                             <div class="others-option">
                                 <div class="option-item">
                                     <nuxt-link to="/login">Login</nuxt-link>
                                 </div>
                                 <div class="option-item">
-                                    <!-- <a @click.prevent="toggle" href="#">
+                                    <a @click.prevent="toggle" href="#">
                                         Cart({{cart.length}}) <i class="fas fa-shopping-bag"></i>
-                                    </a> -->
+                                    </a>
                                 </div>
+                            </div> -->
+                            <div class="navbar-end others-option">
+
+                                    <template v-if="!$auth.loggedIn">
+                                        <nuxt-link :to="{ name: 'auth-signin' }" class="navbar-item option-item">
+                                        Sign in
+                                        </nuxt-link>
+                                    </template>
+                             
+                                <template v-else>
+                                    <a href="#" class="navbar-item">
+                                    {{ $auth.user.name }}
+                                    </a>
+                                    <nuxt-link :to="{ name: 'orders' }" class="navbar-item option-item">
+                                    Orders
+                                    </nuxt-link>
+                                    <nuxt-link :to="{ name: 'cart' }" class="navbar-item option-item">
+                                    Cart ({{ cartCount }})
+                                    </nuxt-link>
+                                </template>
                             </div>
                         </b-collapse>
                     </nav>
