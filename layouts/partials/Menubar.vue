@@ -37,16 +37,8 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-item">
-                                    <nuxt-link to="/gallery-one" class="nav-link">Gallery</nuxt-link>
-                                </li>
-
                                 <li class="nav-item p-relative"><a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <nuxt-link to="/gallery-one" class="nav-link">Gallery</nuxt-link>
-                                        </li>
-
                                         <li class="nav-item">
                                             <nuxt-link to="/cart" class="nav-link">Cart</nuxt-link>
                                         </li>
@@ -73,13 +65,6 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-item p-relative"><a href="#" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><nuxt-link to="/blog-one" class="nav-link">Blog Grid</nuxt-link></li>
-
-                                        <li class="nav-item"><nuxt-link to="/blog-details" class="nav-link">Blog Details</nuxt-link></li>
-                                    </ul>
-                                </li>
 
                                 <li class="nav-item">
                                     <nuxt-link to="/contact" class="nav-link">Contact</nuxt-link>
@@ -130,6 +115,7 @@
 <script>
 import SidebarPanel from '@/layouts/partials/SidebarPanel';
 import { mutations } from '@/utils/sidebar-util';
+import { mapGetters } from 'vuex'
 export default {
     components: {
         SidebarPanel
@@ -151,9 +137,14 @@ export default {
         })
     },
     computed: {
-        cart(){
-            return this.$store.getters.cart
-        }
+    ...mapGetters({
+        categories: 'categories',
+        cartCount: 'cart/count'
+      })
+  
+        // cart(){
+        //     return this.$store.getters.cart
+        // }
     },
     methods: {
         toggle() {

@@ -2,7 +2,7 @@
  <nav class="navbar is-white">
   <div class="container">
   <div class="navbar-brand">
-    <nuxt-link :to="{ name: 'index' }" class="navbar-item">
+    <nuxt-link  :to="{ name: 'cart' }" class="navbar-item">
       cart
     </nuxt-link>
     <div class="navbar-burger burger" data-target="nav">
