@@ -6,6 +6,11 @@
     <Menubar></Menubar>
     <Navigation />
     <nuxt/>
+      <Banner />
+      <Facility />
+      <!-- <TrendingProducts /> -->
+      <BestSellers />
+      
     <Footer></Footer>
     <SiteLoader  v-if="loading" />
     <BackToTop></BackToTop>
@@ -22,6 +27,16 @@
   import BackToTop from '@/layouts/partials/BackToTop';
   import SiteLoader from '@/layouts/partials/SiteLoder';
 
+  import Banner from '../components/diction-two/Banner';
+  import Facility from '../components/diction-two/Facility';
+  import TrendingProducts from '../components/diction-two/TrendingProducts';
+  import BestSellers from '@/components/diction-two/BestSellers';
+  import Offer from '../components/diction-two/Offer';
+  import News from '../components/diction-two/News';
+  import Subscribe from '../components/common/Subscribe';
+  import Partner from '../components/common/Partner';
+  import InstagramPhotos from '../components/common/InstagramPhotos';
+
   export default {
     components: {
       Navigation,
@@ -31,7 +46,16 @@
       Menubar,
       Footer,
       BackToTop,
-      SiteLoader
+      SiteLoader,
+      Banner,
+      Facility, 
+      TrendingProducts,
+      BestSellers,
+      Offer,
+      News,
+      Subscribe,
+      Partner,
+      InstagramPhotos
     },
     data() {
       return {
