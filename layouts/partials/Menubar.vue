@@ -30,10 +30,43 @@
                                 </li>
 
                                 <li class="nav-item p-relative"><a href="#" class="nav-link">Shop <i class="fas fa-chevron-down"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><nuxt-link to="/products" class="nav-link">Products</nuxt-link></li>
-
-                                        <li class="nav-item"><nuxt-link to="/products-details/1" class="nav-link">Products Details</nuxt-link></li>
+     
+                                    <ul class="dropdown-menu" >
+                                        <template v-for="category in categories">
+                                           
+                                            <template v-if="category.children.length">
+                                              
+                                                    <div class="navbar-item is-hoverable has-dropdown" :key="category.slug">
+                                                        <li class="nav-item" >
+                                                            <nuxt-link 
+                                                                :to="{ name: 'categories-slug', params: { slug: category.slug } }"
+                                                                class="navbar-link"
+                                                            >
+                                                                {{ category.name }}
+                                                            </nuxt-link>
+                                                        </li>
+                                                        <!-- <div class="navbar-dropdown">
+                                                            <nuxt-link 
+                                                            :to="{ name: 'categories-slug', params: { slug: child.slug } }"
+                                                            class="navbar-item"
+                                                            v-for="child in category.children"
+                                                            :key="child.slug"
+                                                            >
+                                                            {{ child.name }}
+                                                            </nuxt-link>
+                                                        </div> -->
+                                                    </div>
+                                               
+                                            </template>
+                                            <template v-else>
+                                                <li class="nav-item" :key="category.slug">
+                                                    <nuxt-link :to="{ name: 'categories-slug', params: { slug: category.slug } }"  class="navbar-item nav-link">
+                                                    {{ category.name }}
+                                                    </nuxt-link>
+                                                </li>
+                                            </template>
+                                       
+                                        </template>
                                     </ul>
                                 </li>
 
@@ -116,6 +149,7 @@
 import SidebarPanel from '@/layouts/partials/SidebarPanel';
 import { mutations } from '@/utils/sidebar-util';
 import { mapGetters } from 'vuex'
+
 export default {
     components: {
         SidebarPanel

@@ -2,11 +2,14 @@
  <div class="section">
    <div class="container is-fluid">
      <p>Home</p>
-      <!-- <Banner />
-      <Facility />
+       <Banner />
+      <!--<Facility />
       <TrendingProducts />  -->
-      <!-- <BestSellers /> -->
-     <!--  <Offer />
+      <BestSellers />
+      
+      <CategoryPanels />
+
+      <!--<Offer />
       <News />
       <Subscribe />
       <Partner />
@@ -20,6 +23,7 @@ import Banner from '../components/diction-two/Banner';
 import Facility from '../components/diction-two/Facility';
 import TrendingProducts from '../components/diction-two/TrendingProducts';
 import BestSellers from '../components/diction-two/BestSellers';
+import CategoryPanels from '../components/diction-two/CategoryPanels';
 import Offer from '../components/diction-two/Offer';
 import News from '../components/diction-two/News';
 import Subscribe from '../components/common/Subscribe';
@@ -32,6 +36,7 @@ export default {
       TrendingProducts,
       BestSellers,
       Offer,
+      CategoryPanels,
       News,
       Subscribe,
       Partner,

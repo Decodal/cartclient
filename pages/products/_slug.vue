@@ -25,7 +25,7 @@
                 </span>
                 </section>
 
-                 <section class="section">
+                <section class="section">
                 <form action="" @submit.prevent="add">
                     <ProductVariation
                         v-for="(variations, type) in product.variations"
@@ -37,16 +37,16 @@
 
                     <div class="field has-addons" v-if="form.variation">
                         <div class="control">
-                        <div class="select is-fullwidth">
+                          <div class="select is-fullwidth">
                             <select name="" id="" v-model="form.quantity">
-                                <option :value="x" v-for="x in parseInt(form.variation.stock_count)" :key="x">
-                                    {{ x }}
-                                </option>
+                              <option :value="x" v-for="x in parseInt(form.variation.stock_count)" :key="x">
+                                  {{ x }}
+                              </option>
                             </select>
-                        </div>
+                          </div>
                         </div>
                         <div class="control">
-                        <button type="submit" class="button is-info">Add to cart</button>
+                          <button type="submit" class="button is-info">Add to cart</button>
                         </div>
                     </div>
                 </form>

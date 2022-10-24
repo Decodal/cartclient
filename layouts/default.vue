@@ -4,13 +4,15 @@
     <TopPanel v-if="isShowing" @clicked="onTopPanelClose"></TopPanel>
     <TopHeader></TopHeader>
     <Menubar></Menubar>
-    <Navigation />
+    <!-- <Navigation /> -->
     <nuxt/>
-      <Banner />
-      <Facility />
+      <!-- <Banner /> -->
+      <!-- <Facility /> -->
       <!-- <TrendingProducts /> -->
-      <BestSellers />
+      <!-- <BestSellers /> -->
       
+    <!-- <CategoryPanels /> -->
+    <!-- <CategoryPanels></CategoryPanels> -->
     <Footer></Footer>
     <SiteLoader  v-if="loading" />
     <BackToTop></BackToTop>
