@@ -114,24 +114,33 @@
                                     </a>
                                 </div>
                             </div> -->
-                            <div class="navbar-end others-option">
+                            <div class="others-option">
 
                                     <template v-if="!$auth.loggedIn">
-                                        <nuxt-link :to="{ name: 'auth-signin' }" class="navbar-item option-item">
-                                        Sign in
-                                        </nuxt-link>
+                                        <div class="option-item">
+                                            <nuxt-link :to="{ name: 'auth-signin' }">
+                                            Sign in
+                                            </nuxt-link>
+                                        </div>
                                     </template>
                              
                                 <template v-else>
-                                    <a href="#" class="navbar-item">
-                                    {{ $auth.user.name }}
-                                    </a>
-                                    <nuxt-link :to="{ name: 'orders' }" class="navbar-item option-item">
-                                    Orders
-                                    </nuxt-link>
-                                    <nuxt-link :to="{ name: 'cart' }" class="navbar-item option-item">
-                                    Cart ({{ cartCount }})
-                                    </nuxt-link>
+                                    <div class="option-item">
+                                        <a href="#" >
+                                        {{ $auth.user.name }}
+                                        </a>
+                                    </div>
+                                    <div class="option-item">
+                                        <nuxt-link :to="{ name: 'orders' }">
+                                        Orders
+                                        </nuxt-link>
+                                    </div>
+
+                                    <div class="option-item">
+                                        <nuxt-link :to="{ name: 'cart' }">
+                                        Cart ({{ cartCount }}) <i class="fas fa-shopping-bag"></i>
+                                        </nuxt-link>
+                                    </div>
                                 </template>
                             </div>
                         </b-collapse>

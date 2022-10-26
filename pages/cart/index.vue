@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <!-- <div class="section">
     <div class="container is-fluid">
       <div class="columns is-centered">
         <div class="column is-three-quarters">
@@ -22,7 +22,21 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  <div>
+        <!-- Start Page Title Area -->
+        <div class="page-title-area">
+            <div class="container">
+                <ul>
+                    <li><nuxt-link to="/">Home</nuxt-link></li>
+                    <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Page Title Area -->
+        <!-- <CartItems /> -->
+        <CartOverview />
+    </div>
 </template>
 
 <script>
