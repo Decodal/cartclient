@@ -28,9 +28,7 @@
         <div class="single-product-box">
             <div class="product-image">
                 <nuxt-link :to="link">
-                    <!-- <img :src="product.image" :alt="product.name">
-                    <img :src="product.imageHover" :alt="product.name"> -->
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt=""/>
+                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt=""/>
                 </nuxt-link>
 
                 <ul>

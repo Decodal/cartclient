@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheAlert />
-    <TopPanel v-if="isShowing" @clicked="onTopPanelClose"></TopPanel>
+    <TopPanel v-if="isShowing" @clicked="onTopPanelClose"/>
     <TopHeader></TopHeader>
     <Menubar></Menubar>
     <!-- <Navigation /> -->
