@@ -1,6 +1,7 @@
 <template>
-  <table class="table is-hoverable is-fullwidth">
-    <tbody>
+  <div class="order-table table-responsive">
+    <table class="table table-bordered">
+      <tbody>
       <tr v-for="paymentMethod in paymentMethods" :key="paymentMethod.id">
         <td>
           <p :class="{ 'has-text-weight-bold': paymentMethod.id === selectedPaymentMethod.id }">
@@ -9,13 +10,15 @@
           </p>
         </td>
         <td>
-          <a href="" class="button is-info" @click.prevent="$emit('click', paymentMethod)">
+          <a href="" class="btn btn-primary" @click.prevent="$emit('click', paymentMethod)">
             Pay with this
           </a>
         </td>
       </tr>
     </tbody>
-  </table>
+    </table>
+  </div>
+  
 </template>
 
 <script>

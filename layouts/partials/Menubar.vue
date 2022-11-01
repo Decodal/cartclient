@@ -160,6 +160,7 @@ import { mutations } from '@/utils/sidebar-util';
 import { mapGetters } from 'vuex'
 
 export default {
+    name: 'MenuBar',
     components: {
         SidebarPanel
     },

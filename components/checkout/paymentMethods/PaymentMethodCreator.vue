@@ -4,15 +4,15 @@
       <div id="card-element"></div>
     </div>
 
-    <div class="field">
-      <p class="control">
-        <button class="button is-info" :disabled="storing">
+    <div class="col-lg-12 col-md-6">
+      <div class="form-group">
+        <button class="btn btn-primary" :disabled="storing">
           Store card
         </button>
         <a href="#" class="button is-text" @click.prevent="$emit('cancel')">
           Cancel
         </a>
-      </p>
+      </div>
     </div>
   </form>
 </template>

@@ -31,6 +31,7 @@
 
 <script>
 export default {
+    name: 'TopPanel',
     data() {
         return {
             isShowing: true,

@@ -1,7 +1,7 @@
 <template>
-  <article class="message">
-    <div class="message-body">
-      <h1 class="title is-5">Ship to</h1>
+
+    <div>
+      <!-- <h1 class="title is-5">Ship to</h1> -->
 
       <template v-if="selecting">
         <ShippingAddressSelector
@@ -18,28 +18,41 @@
       </template>
       <template v-else>
         <template v-if="selectedAddress">
-          <p>
-            {{ selectedAddress.name }}<br>
-            {{ selectedAddress.address_1 }}<br>
-            {{ selectedAddress.city }}<br>
-            {{ selectedAddress.postal_code }}<br>
-            {{ selectedAddress.country.name }}
-          </p>
+          <div class="row">
+            <div class="col-lg-12 col-md-6">
+              <p>{{ selectedAddress.name }}</p>
+            </div>
+            <div class="col-lg-12 col-md-6">
+              <p>{{ selectedAddress.address_1 }}</p>
+            </div>
+            <div class="col-lg-12 col-md-6">
+              <p>{{ selectedAddress.city }}</p>
+            </div>
+            <div class="col-lg-12 col-md-6">
+              <p>{{ selectedAddress.postal_code }}</p>
+            </div>
+            <div class="col-lg-12 col-md-6">
+              <p>{{ selectedAddress.country.name }}</p>
+            </div>
+          </div>
 
-          <br>
         </template>
 
-        <div class="field is-grouped">
-          <p class="control">
-            <a href="" class="button is-info" @click.prevent="selecting = true">Change shipping address</a>
-          </p>
-          <p class="control">
-            <a href="" class="button is-info" @click.prevent="creating = true">Add an address</a>
-          </p>
-        </div>
+        <div class="row">
+            <div class="col-6">
+              <p class="control">
+                <a href="" class="btn btn-primary" @click.prevent="selecting = true">Change shipping address</a>
+              </p>
+            </div>
+            <div class="col-6">
+              <p class="control">
+                <a href="" class="btn btn-primary" @click.prevent="creating = true">Add an address</a>
+              </p>
+            </div>
+          </div>
       </template>   
     </div>
-  </article>
+
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <!-- <div class="section">
     <div class="container is-fluid">
       <div class="columns">
         <div class="column is-three-quarters">
@@ -33,32 +33,13 @@
               <h1 class="title is-5">
                 Cart summary
               </h1>
-              <CartOverview>
-                <template slot="rows" v-if="shippingMethodId">
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td class="has-text-weight-bold">
-                      Shipping
-                    </td>
-                    <td>
-                      {{ shipping.price }}
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td class="has-text-weight-bold">
-                      Total
-                    </td>
-                    <td>
-                      {{ total }}
-                    </td>
-                    <td></td>
-                  </tr>
-                </template>
-              </CartOverview>
+
+
+              <CartOverviewProduct
+                  v-for="product in products"
+                  :key="product.id"
+                  :product="product"
+                />
             </div>
           </article>
 
@@ -89,13 +70,110 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  <div>
+        <!-- Start Page Title Area -->
+        <div class="page-title-area">
+            <div class="container">
+                <ul>
+                    <li><nuxt-link to="/">Home</nuxt-link></li>
+                    <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Page Title Area -->
+
+        <!-- Start Checkout Area -->
+		    <section class="checkout-area ptb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="user-actions">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Returning customer? <nuxt-link to="/login">Click here to login</nuxt-link></span>
+                        </div>
+                    </div>
+                </div>
+
+                <form>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="billing-details">
+                                <h3 class="title">Shipping Details</h3>
+                                <ShippingAddress
+                                    :addresses="addresses"
+                                    v-model="form.address_id"
+                                  />
+                            </div>
+                            <div class="order-details">
+                              <div class="payment-method">
+                                  <h3 class="title">Payment methods</h3>
+                                    <PaymentMethods
+                                      :payment-methods="paymentMethods"
+                                      v-model="form.payment_method_id"
+                                    />
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-12">
+                            <div class="order-details">
+                                <h3 class="title">Your Order</h3>
+
+                                <div class="order-table table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Product Name</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                          <CartOverviewProduct
+                                            v-for="product in products"
+                                            :key="product.id"
+                                            :product="product"
+                                          />
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="payment-method">
+                                    <!-- <p>
+                                        <input type="radio" id="direct-bank-transfer" name="radio-group" checked>
+                                        <label for="direct-bank-transfer">Direct Bank Transfer</label>
+
+                                        Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="paypal" name="radio-group">
+                                        <label for="paypal">PayPal</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="cash-on-delivery" name="radio-group">
+                                        <label for="cash-on-delivery">Cash on Delivery</label>
+                                    </p> -->
+                                </div>
+
+                                <button  :disabled="empty || submitting"
+                                   @click.prevent="order"
+                                    class="btn btn-primary order-btn">Place Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+		<!-- End Checkout Area -->
+    </div>
 </template>
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
 
-  import CartOverview from '@/components/cart/CartOverview'
+  import CartOverviewProduct from '@/components/cart/CartOverviewProduct'
   import ShippingAddress from '@/components/checkout/addresses/ShippingAddress'
   import PaymentMethods from '@/components/checkout/paymentMethods/PaymentMethods'
 
@@ -130,7 +208,7 @@
     },
 
     components: {
-      CartOverview,
+      CartOverviewProduct,
       ShippingAddress,
       PaymentMethods
     },

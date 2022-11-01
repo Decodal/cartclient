@@ -1,7 +1,7 @@
 <template>
-  <article class="message">
-    <div class="message-body">
-      <h1 class="title is-5">Payment method</h1>
+  <div>
+
+      <!-- <h1 class="title is-5">Payment method</h1> -->
 
       <template v-if="selecting">
         <PaymentMethodSelector
@@ -18,24 +18,31 @@
       </template>
       <template v-else>
         <template v-if="selectedPaymentMethod">
-          <p>
-            {{ selectedPaymentMethod.card_type }} ending {{ selectedPaymentMethod.last_four }}
-          </p>
-
-          <br>
+          <div class="row">
+            <div class="col-lg-12 col-md-6">
+              <p>
+                {{ selectedPaymentMethod.card_type }} ending {{ selectedPaymentMethod.last_four }}
+              </p>
+            </div>
+          </div>
         </template>
 
-        <div class="field is-grouped">
+        <div class="row">
+            <div class="col-6">
+             
           <p class="control" v-if="paymentMethods.length">
-            <a href="" class="button is-info" @click.prevent="selecting = true">Change payment method</a>
-          </p>
-          <p class="control">
-            <a href="" class="button is-info" @click.prevent="creating = true">Add a payment method</a>
+            <a href="" class="btn btn-primary" @click.prevent="selecting = true">Change payment method</a>
           </p>
         </div>
+            <div class="col-6">
+              <p class="control">
+                <a href="" class="btn btn-primary" @click.prevent="creating = true">Add a payment method</a>
+              </p>
+            </div>
+          </div>
       </template>
-    </div>
-  </article>
+
+  </div>
 </template>
 
 <script>
