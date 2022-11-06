@@ -24,6 +24,7 @@
   <!-- Start Cart Area -->
   <section class="cart-area ptb-60">
             <div class="container">
+              <div class="section-title"><h2><span class="dot"></span> Cart</h2></div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <form>
@@ -45,7 +46,7 @@
                                         :key="product.id"
                                         :product="product"
                                       />
-                                     
+                                    
                                     </tbody>
                                 </table>
                             </div>

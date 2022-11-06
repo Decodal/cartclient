@@ -6,7 +6,7 @@
       <!--<Facility />
       <TrendingProducts />  -->
       <BestSellers />
-      
+
       <CategoryPanels />
 
       <!--<Offer />

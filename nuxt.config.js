@@ -2,6 +2,7 @@ module.exports = {
   /*
   ** Headers of the page
   */
+
   head: {
     title: 'cartclient',
     meta: [
@@ -36,29 +37,32 @@ module.exports = {
       local: { 
         token: {
           property: 'meta.token',
+          required: true,
+          type: 'Bearer'
         },
         user: {
-          property: 'data',
-          autoFetch: false,
+          property: false,
+          autoFetch: true,
         },
         endpoints: { 
           login: { 
-            url: '/auth/login', 
-            method: 'POST', 
+            url: '/auth/login',
+            method: 'post',
+            propertyName: 'meta.token'
           }, 
-          // logout: { 
-          //   url: '/api/v1/web/logout', 
-          //   method: 'POST' 
-          // }, 
+          logout: { 
+            url: '/auth/logout',
+            method: 'post' 
+          }, 
           user: {
-            url: '/auth/me', 
-            method: 'get', 
-            propertyName: false
+            url: '/auth/me',
+            method: 'get'
           }
 
         } 
-      } 
-    } 
+      }
+      
+    }
   },
   // auth: {
   //   strategies: {

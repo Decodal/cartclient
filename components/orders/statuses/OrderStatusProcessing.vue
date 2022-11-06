@@ -1,5 +1,5 @@
 <template>
-  <div class="tag is-medium is-info">
+  <div class="badge badge-primary">
     Processing
   </div>
 </template>

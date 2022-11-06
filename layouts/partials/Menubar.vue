@@ -116,19 +116,26 @@
                             </div> -->
                             <div class="others-option">
 
-                                    <template v-if="!$auth.loggedIn">
-                                        <div class="option-item">
-                                            <nuxt-link :to="{ name: 'auth-signin' }">
-                                            Sign in
-                                            </nuxt-link>
-                                        </div>
-                                    </template>
+                                <template v-if="!$auth.$state.loggedIn">
+                                    <div class="option-item">
+                                      <nuxt-link :to="{ name: 'auth-signin' }">
+
+                                        Sign in
+                                      </nuxt-link>
+                                        <!-- <button
+                                        to="/login"
+                                        >  Sign in</button> -->
+                                    </div>
+                                </template>
                              
                                 <template v-else>
                                     <div class="option-item">
-                                        <a href="#" >
+                                        <!-- <nuxt-link :to="{ name: 'admin' }">
                                         {{ $auth.user.name }}
-                                        </a>
+                                        </nuxt-link> -->
+                                        <button
+                                       
+                                        > </button>
                                     </div>
                                     <div class="option-item">
                                         <nuxt-link :to="{ name: 'orders' }">
@@ -140,6 +147,15 @@
                                         <nuxt-link :to="{ name: 'cart' }">
                                         Cart ({{ cartCount }}) <i class="fas fa-shopping-bag"></i>
                                         </nuxt-link>
+                                    </div>
+                                    <div class="option-item">
+                                        <!-- <nuxt-link :to="{ name: 'auth-signout' }">
+                                        Logout
+                                        </nuxt-link> -->
+                                        <button
+                                        @click="$auth.logout()"
+                                        >Logout</button>
+                                       
                                     </div>
                                 </template>
                             </div>
@@ -193,7 +209,10 @@ export default {
     methods: {
         toggle() {
             mutations.toggleNav()
-        }
+        },
+        async logout() {
+            await this.$auth.logout()
+        },
     }
 }
 </script>

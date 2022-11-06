@@ -1,5 +1,5 @@
 <template>
-  <div class="tag is-medium is-success">
+  <div class="badge badge-success">
     Completed
   </div>
 </template>

@@ -53,6 +53,9 @@
         await this.$auth.loginWith('local', {
           data: this.form
         })
+        await this.$auth.setUser({ 
+           
+        })
 
         if (this.$route.query.redirect) {
           this.$router.replace(this.$route.query.redirect)
